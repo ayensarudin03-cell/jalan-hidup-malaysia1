@@ -252,8 +252,8 @@ character.classList.add('character-card');story.classList.add('story-card');sett
 const footer=document.createElement('section');footer.className='stats-footer';footer.innerHTML='<h2>💚 Your wellbeing</h2>';footer.appendChild(stats);
 layout.appendChild(footer);
 layout.appendChild(story);
-/* Legacy Activities accordion intentionally removed: new dedicated screen owns navigation. */
-const legacyActivities=document.getElementById('activitiesAccordion');if(legacyActivities)legacyActivities.remove();
+/* Keep legacy markup as a hidden rendering dependency, never expose it as navigation. */
+const legacyActivities=document.getElementById('activitiesAccordion');if(legacyActivities){legacyActivities.open=false;legacyActivities.style.setProperty('display','none','important');}
 layout.appendChild(document.querySelector('.snapshot-accordion'));
 layout.appendChild(settings);
 const nav=document.getElementById('bottomNav');
